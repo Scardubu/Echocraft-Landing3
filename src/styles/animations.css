@@ -1,0 +1,37 @@
+@keyframes hologram-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(2deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(10px) rotate(-2deg); }
+}
+
+@keyframes gradient-pulse {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes neon-pulse {
+  0%, 100% { 
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.7),
+                 0 0 20px rgba(139, 92, 246, 0.5);
+  }
+  50% { 
+    text-shadow: 0 0 15px rgba(56, 189, 248, 1),
+                 0 0 30px rgba(139, 92, 246, 0.8);
+  }
+}
+
+.sphere-animation {
+  animation: hologram-float 8s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.3));
+}
+
+.glow-text {
+  animation: neon-pulse 3s ease-in-out infinite;
+}
+
+.animated-gradient {
+  background: linear-gradient(270deg, #0ea5e9, #8b5cf6, #0ea5e9);
+  background-size: 200% 200%;
+  animation: gradient-pulse 8s ease infinite;
+}
