@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 
 const AnimationContext = createContext();
 
@@ -8,22 +8,35 @@ export const AnimationProvider = ({ children }) => {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [animationsEnabled, setAnimationsEnabled] = useState(true);
 
+  // Initialize based on user preference and localStorage
   useEffect(() => {
-    // Check user's motion preference
+    // Check system preference
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mediaQuery.matches);
     
-    const handleChange = (e) => {
+    // Check user override in localStorage
+    const storedPreference = localStorage.getItem('animationsEnabled');
+    if (storedPreference !== null) {
+      setAnimationsEnabled(storedPreference === 'true');
+    } else {
+      setAnimationsEnabled(!mediaQuery.matches);
+    }
+    
+    const handleSystemChange = (e) => {
       setPrefersReducedMotion(e.matches);
-      setAnimationsEnabled(!e.matches);
+      if (localStorage.getItem('animationsEnabled') === null) {
+        setAnimationsEnabled(!e.matches);
+      }
     };
     
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
+    mediaQuery.addEventListener('change', handleSystemChange);
+    return () => mediaQuery.removeEventListener('change', handleSystemChange);
   }, []);
 
   const toggleAnimations = () => {
-    setAnimationsEnabled(!animationsEnabled);
+    const newValue = !animationsEnabled;
+    setAnimationsEnabled(newValue);
+    localStorage.setItem('animationsEnabled', newValue.toString());
   };
 
   return (
