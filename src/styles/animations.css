@@ -1,3 +1,20 @@
+/* Reduced motion alternatives first */
+.reduced-motion-hide {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-element {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .reduced-motion-show {
+    display: block;
+  }
+}
+
+/* Animations */
 @keyframes hologram-float {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   25% { transform: translateY(-10px) rotate(2deg); }
@@ -12,18 +29,33 @@
 
 @keyframes neon-pulse {
   0%, 100% { 
-    text-shadow: 0 0 10px rgba(var(--color-primary), 0.7),
-                 0 0 20px rgba(var(--color-secondary), 0.5);
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.7),
+                 0 0 20px rgba(139, 92, 246, 0.5);
   }
   50% { 
-    text-shadow: 0 0 15px rgba(var(--color-primary), 1),
-                 0 0 30px rgba(var(--color-secondary), 0.8);
+    text-shadow: 0 0 15px rgba(56, 189, 248, 1),
+                 0 0 30px rgba(139, 92, 246, 0.8);
   }
 }
 
-@keyframes moveLine {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.sphere-animation {
+  animation: hologram-float 8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sphere-animation {
+    animation: none;
+  }
 }
 
 .glow-text {
@@ -31,29 +63,14 @@
 }
 
 .animated-gradient {
-  background: linear-gradient(270deg, 
-    rgba(var(--color-primary), 1), 
-    rgba(var(--color-secondary), 1), 
-    rgba(var(--color-primary), 1));
+  background: linear-gradient(270deg, #0ea5e9, #8b5cf6, #0ea5e9);
   background-size: 200% 200%;
   animation: gradient-pulse 8s ease infinite;
 }
 
-.tech-icon-hover {
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.tech-icon-hover:hover {
-  transform: translateY(-5px) scale(1.1);
-  filter: drop-shadow(0 5px 15px rgba(var(--color-primary), 0.4));
-}
-
-/* Reduced motion alternatives */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  .glow-text,
+  .animated-gradient {
+    animation: none;
   }
 }

@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: 34, 211, 238;
+  --color-secondary: 139, 92, 246;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-slate-900 text-slate-100 font-sans antialiased overflow-x-hidden;
+    background-image: radial-gradient(circle at 50% 50%, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 1) 100%);
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-bold tracking-tight;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold rounded-full px-8 py-4 transition-all duration-300 
+           hover:from-cyan-600 hover:to-purple-600 hover:shadow-2xl hover:shadow-cyan-500/30 
+           focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-cyan-400 text-cyan-400 font-semibold rounded-full px-8 py-4 transition-all duration-300 
+           hover:bg-cyan-400 hover:text-white 
+           focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900;
+  }
+
+  .card {
+    @apply bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl transition-all duration-300 
+           hover:border-cyan-400/50 hover:shadow-xl hover:shadow-cyan-500/10;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent;
+  }
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .service-card {
+    padding: 1.5rem;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-content {
+    padding-top: 6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Custom animations imported */

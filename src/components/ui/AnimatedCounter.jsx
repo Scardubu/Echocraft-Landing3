@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useAnimation } from '../../context/AnimationContext';
-import { useViewportTracking } from '../../hooks/useViewportTracking';
+import useViewportTracking from '../../hooks/useViewportTracking';
 
 const AnimatedCounter = ({ value, duration = 2, suffix = '', label, delay = 0 }) => {
   const [count, setCount] = useState(0);

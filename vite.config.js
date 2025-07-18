@@ -4,16 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
   plugins: [
-    react({
-      babel: {
-        plugins: [
-          ['babel-plugin-styled-components', {
-            displayName: true,
-            fileName: false
-          }]
-        ]
-      }
-    }),
+    react(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
@@ -41,6 +32,7 @@ export default defineConfig({
         ]
       },
       workbox: {
+        maximumFileSizeToCacheInBytes: 5000000, // 5MB
         runtimeCaching: [
           {
             urlPattern: /\.(png|jpe?g|webp|svg)$/,
@@ -75,8 +67,6 @@ export default defineConfig({
         manualChunks: {
           react: ['react', 'react-dom'],
           framer: ['framer-motion'],
-          three: ['three'],
-          particles: ['react-particles', 'tsparticles', 'tsparticles-preset-stars'],
           icons: ['lucide-react']
         }
       }

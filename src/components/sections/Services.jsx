@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { CheckCircle } from 'lucide-react';
 import { services } from '../../data/services';
 import ServiceCard from '../ui/ServiceCard';
 import { useAnimation } from '../../context/AnimationContext';
@@ -49,39 +50,43 @@ const Services = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto"
       >
         {services.map((service, index) => (
           <motion.div 
             key={index} 
             variants={animationsEnabled ? item : false}
-            onClick={() => setActiveService(index)}
+            className="h-full"
           >
             <ServiceCard 
               service={service} 
               isActive={activeService === index}
+              onClick={() => setActiveService(index)}
               animationsEnabled={animationsEnabled}
             />
           </motion.div>
         ))}
       </motion.div>
       
-      <div className="mt-20 max-w-4xl mx-auto bg-gradient-to-r from-cyan-900/20 to-purple-900/20 p-8 rounded-2xl border border-cyan-500/20">
+      <div className="mt-16 max-w-4xl mx-auto bg-gradient-to-r from-cyan-900/20 to-purple-900/20 p-6 rounded-2xl border border-cyan-500/20">
         <div className="flex flex-col md:flex-row items-center gap-6">
-          <div className="bg-slate-800 p-4 rounded-xl">
-            <div className="text-5xl">💡</div>
+          <div className="flex-shrink-0">
+            <div className="bg-slate-800 p-4 rounded-xl w-16 h-16 flex items-center justify-center">
+              <div className="text-3xl">💡</div>
+            </div>
           </div>
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-2xl font-bold text-white mb-2">Why Choose Echocraft?</h3>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                "✅ 24/7 Technical Support",
-                "✅ 30-Day Money-Back Guarantee",
-                "✅ Industry-Specific Solutions",
-                "✅ Dedicated Success Manager"
+                "24/7 Technical Support",
+                "30-Day Money-Back Guarantee",
+                "Industry-Specific Solutions",
+                "Dedicated Success Manager"
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-2 text-gray-300">
-                  {item}
+                <li key={i} className="flex items-start gap-2 text-gray-300">
+                  <CheckCircle className="text-cyan-400 flex-shrink-0 mt-1" size={16} />
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>

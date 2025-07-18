@@ -1,34 +1,116 @@
+import { 
+  Bot, 
+  Blocks, 
+  Zap, 
+  TrendingUp, 
+  Shield, 
+  Code,
+  Database,
+  Cloud
+} from 'lucide-react';
+
 export const services = [
   {
-    icon: 'Code',
-    title: 'AI-Powered Data Pipelines',
-    description: 'Automated data ingestion, transformation, and visualization pipelines that learn from your workflows',
-    features: ['Real-time Analytics', 'Predictive Modeling', 'Automated Reporting', 'Anomaly Detection'],
-    color: 'from-blue-500 to-cyan-500',
-    demo: 'Pipeline Demo'
+    id: 1,
+    title: "AI & Machine Learning",
+    description: "Advanced AI solutions that learn and adapt to your business needs, from predictive analytics to intelligent automation.",
+    icon: Bot,
+    color: "from-cyan-500 to-blue-500",
+    demo: "View Demo",
+    features: [
+      "Custom ML model development",
+      "Natural language processing",
+      "Computer vision systems",
+      "Predictive analytics"
+    ],
+    technologies: ["TensorFlow", "PyTorch", "OpenAI", "Hugging Face"],
+    benefits: [
+      "Reduce operational costs by 40%",
+      "Improve decision accuracy by 85%",
+      "Automate repetitive tasks"
+    ],
+    caseStudy: {
+      title: "E-commerce Recommendation Engine",
+      result: "Increased conversion rates by 127%"
+    }
   },
   {
-    icon: 'Brain',
-    title: 'Blockchain Integration',
-    description: 'Secure, scalable blockchain solutions for transparent transactions and decentralized workflows',
-    features: ['Smart Contracts', 'NFT Marketplaces', 'DeFi Protocols', 'Tokenization'],
-    color: 'from-purple-500 to-pink-500',
-    demo: 'Contract Demo'
+    id: 2,
+    title: "Blockchain Development",
+    description: "Secure, transparent blockchain solutions including smart contracts, DeFi platforms, and custom cryptocurrency systems.",
+    icon: Blocks,
+    color: "from-purple-500 to-pink-500",
+    demo: "View Demo",
+    features: [
+      "Smart contract development",
+      "DeFi protocol creation",
+      "NFT marketplace platforms",
+      "Cryptocurrency integration"
+    ],
+    technologies: ["Ethereum", "Solidity", "Web3.js", "Polygon", "Chainlink"],
+    benefits: [
+      "Eliminate intermediaries",
+      "Reduce transaction costs by 60%",
+      "Enhance security and transparency"
+    ],
+    caseStudy: {
+      title: "Supply Chain Tracking Platform",
+      result: "Reduced fraud by 95%"
+    }
   },
   {
-    icon: 'Shield',
-    title: 'DevOps Automation',
-    description: 'End-to-end CI/CD pipelines with infrastructure as code and zero-downtime deployments',
-    features: ['Kubernetes Orchestration', 'GitOps Workflows', 'Security Scanning', 'Cost Optimization'],
-    color: 'from-green-500 to-emerald-500',
-    demo: 'CI/CD Demo'
+    id: 3,
+    title: "DevOps & Cloud Automation",
+    description: "Streamline your development lifecycle with automated CI/CD pipelines, containerization, and cloud infrastructure management.",
+    icon: Zap,
+    color: "from-green-500 to-teal-500",
+    demo: "View Demo",
+    features: [
+      "CI/CD pipeline setup",
+      "Container orchestration",
+      "Infrastructure as Code",
+      "Monitoring and alerting"
+    ],
+    technologies: ["Docker", "Kubernetes", "AWS", "Terraform", "Jenkins"],
+    benefits: [
+      "Reduce deployment time by 80%",
+      "Minimize downtime to <0.1%",
+      "Improve team productivity"
+    ],
+    caseStudy: {
+      title: "Multi-Cloud Migration",
+      result: "Reduced infrastructure costs by 45%"
+    }
   },
   {
-    icon: 'Zap',
-    title: 'Predictive Analytics',
-    description: 'Machine learning models that forecast trends, identify opportunities, and prevent risks',
-    features: ['Customer Churn Prediction', 'Demand Forecasting', 'Fraud Detection', 'Sentiment Analysis'],
-    color: 'from-yellow-500 to-amber-500',
-    demo: 'ML Demo'
+    id: 4,
+    title: "Data Analytics & Intelligence",
+    description: "Transform raw data into actionable insights with advanced analytics, real-time dashboards, and business intelligence solutions.",
+    icon: TrendingUp,
+    color: "from-orange-500 to-red-500",
+    demo: "View Demo",
+    features: [
+      "Real-time analytics dashboards",
+      "Data warehouse design",
+      "Business intelligence tools",
+      "Predictive modeling"
+    ],
+    technologies: ["Python", "R", "Tableau", "Power BI", "Apache Spark"],
+    benefits: [
+      "Make data-driven decisions",
+      "Identify trends 3x faster",
+      "Improve ROI by 200%"
+    ],
+    caseStudy: {
+      title: "Real-time Sales Analytics",
+      result: "Increased revenue by 78%"
+    }
   }
 ];
+
+export const serviceStats = {
+  projectsCompleted: 150,
+  clientSatisfaction: 98,
+  averageROI: 285,
+  supportResponse: "< 2 hours"
+};

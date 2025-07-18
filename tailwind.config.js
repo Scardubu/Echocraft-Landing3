@@ -49,10 +49,11 @@ module.exports = {
         'bounce-slow': 'bounce 3s infinite',
         'float': 'hologram-float 8s ease-in-out infinite',
         'gradient-pulse': 'gradientPulse 8s ease infinite',
-        'neon-pulse': 'neonPulse 3s ease-in-out infinite'
+        'neon-pulse': 'neonPulse 3s ease-in-out infinite',
+        'fade-in': 'fade-in 0.6s ease-out forwards'
       },
       keyframes: {
-        hologram-float: {
+        'hologram-float': {
           '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
           '25%': { transform: 'translateY(-10px) rotate(2deg)' },
           '50%': { transform: 'translateY(0) rotate(0deg)' },
@@ -63,23 +64,23 @@ module.exports = {
           '50%': { 'background-position': '100% 50%' }
         },
         neonPulse: {
-          '0%, 100%': { 
-            'text-shadow': '0 0 10px rgba(56, 189, 248, 0.7), 0 0 20px rgba(139, 92, 246, 0.5)' 
+          '0%, 100%': {
+            'text-shadow': '0 0 10px rgba(56, 189, 248, 0.7), 0 0 20px rgba(139, 92, 246, 0.5)'
           },
-          '50%': { 
-            'text-shadow': '0 0 15px rgba(56, 189, 248, 1), 0 0 30px rgba(139, 92, 246, 0.8)' 
+          '50%': {
+            'text-shadow': '0 0 15px rgba(56, 189, 248, 1), 0 0 30px rgba(139, 92, 246, 0.8)'
           }
+        },
+        'fade-in': {
+          '0%': { opacity: 0, transform: 'translateY(20px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' }
         }
       },
       boxShadow: {
         'glow-cyan': '0 0 20px rgba(56, 189, 248, 0.3)',
         'glow-purple': '0 0 20px rgba(139, 92, 246, 0.3)'
       }
-    },
+    }
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-    require('tailwindcss-text-fill'),
-  ],
+  plugins: [],
 };
